@@ -4,8 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
+    <!-- daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<!-- font awesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
-<body>
+<style>
+.inter-normal{
+  font-family: "Inter", sans-serif;
+
+}
+.primary-color{
+  color: #15803D;
+}
+</style>
+
+<body class="inter-normal max-w-[1920px]">
+    <!-- navbar -->
+     <header class="bg-[#15803D]">
+      <div class="w-11/12 mx-auto flex items-center justify-between py-6">
+        <!-- logo -->
+         <h3 class="font-bold text-2xl text-white">Green Earth</h3>
+         <ul class="font-medium text-white flex items-center gap-7">
+          <li><a href="">About</a></li>
+          <li><a href="">Gallery</a></li>
+          <li><a href="">Plant a tree</a></li>
+         </ul>
+
+         <button class=" bg-[#FACC15] text-[#15803D] rounded-3xl border-none py-3 px-5">Plant a tree</button>
+
+      </div>
+
+     </header>
+     <!-- main -->
+      <main>
+        <!-- hero -->
+         <div class="bg-[#CFF0DC] w-full h-[383px] bg-[url(./assets/hero-leaf1.png),url(./assets/hero-leaf2.png)]  bg-[position:top_left,right] bg-no-repeat ">
+          <div class="flex justify-center items-center flex-col py-25">
+            <h3 class="font-bold text-4xl text-[#1F2937] mb-2">Plant a Tree, Grow a Future</h3>
+            <p class=" text-[#1F2937] text-center mb-6 text-sm ">Join our mission to plant 1 million trees and make the Earth greener for future <br>
+generations.</p>
+
+         <button class=" bg-[#FACC15] text-[#15803D] rounded-3xl border-none py-3 px-5">Get Involved</button>
+            
+
+          </div>
+
+         </div>
+
+         <!-- main section -->
+          <section class=" bg-[#F0FDF4]">
+            <div class="w-11/12 mx-auto">
+              <h3 class="font-semibold text-[32px] text-center pt-25">Choose your Trees</h3>
+
+              <div class="grid grid-cols-5 gap-6">
+
+                <!-- categories -->
+                 <div class="col-span-1">
+                  <h3 class="font-semibold text-xl">Categories</h3>
+                  <div id="categories-container">
+
+                  </div>
+
+                 </div>
+                 <!-- cards -->
+                  <div class="col-span-3">
+
+                  </div>
+                  <!-- Cart -->
+                   <div class="col-span-1">
+
+                   </div>
+
+              </div>
+              
+
+            </div>
+             
+
+          </section>
+
+
+      </main>
+      <!-- footer -->
+       <footer>
+
+       </footer>
+       <script src="index.js"></script>
     
 </body>
 </html>
