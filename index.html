@@ -23,6 +23,12 @@
 .primary-color{
   color: #15803D;
 }
+.active{
+  background-color: #15803D;
+  color: white;
+  border-radius: 10px;
+  padding: 8px;
+}
 </style>
 
 <body class="inter-normal max-w-[1920px]">
@@ -63,14 +69,15 @@ generations.</p>
          <!-- main section -->
           <section>
             <div class="w-11/12 mx-auto">
-              <h3 class="font-semibold text-[32px] text-center pt-25">Choose your Trees</h3>
+              <h3 class="font-semibold text-[32px] text-center pt-25 mb-10">Choose your Trees</h3>
 
               <div class="grid grid-cols-5 gap-6">
 
                 <!-- categories -->
                  <div class="col-span-1">
-                  <h3 class="font-semibold text-xl">Categories</h3>
+                  <h3 class="font-semibold text-xl mb-4">Categories</h3>
                   <div id="categories-container">
+                
 
                   </div>
 
@@ -80,10 +87,19 @@ generations.</p>
                     <div id="card-container" class="grid grid-cols-3 gap-6"></div>
 
                   </div>
+                  <!--  -->
+                
+                  <!--  -->
 
                
                   <!-- Cart -->
                    <div class="col-span-1">
+                    <div class="bg-white p-4 rounded-lg">
+                      <h3 class="text-xl font-semibold">Your Cart</h3>
+                      <div id="cart-container"></div>
+                      
+
+                    </div>
 
                    </div>
 
@@ -141,6 +157,30 @@ generations.</p>
           
            </div>
      </section>
+     <!-- form -->
+      <section class="bg-[#166534]">
+         <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div class="card-body bg-[#15803D]">
+        <fieldset class="fieldset">
+          <label class="label"></label>
+          <input type="text" class="input" placeholder="Your Name" />
+          <label class="label"></label>
+          <input type="email" class="input" placeholder="Your Email Address" />
+        
+        <select name="
+        " id="" class="input dropDownMenu">
+        <option value="">Numbers of Tree</option>
+      <option value="">1 Tree-$5</option>
+      <option value="">5 Trees-$25</option>
+      <option value="">10 Trees-$50</option>
+    </select>
+          <button class="btn btn-neutral mt-4">Donate Now</button>
+        </fieldset>
+      </div>
+    </div>
+
+
+      </section>
 
 
 
