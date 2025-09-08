@@ -11,7 +11,7 @@ const loadCategories=()=>{
 const displayCategories=(cats)=>{
   
 categoriesContainer.innerHTML=""
-categoriesContainer.innerHTML=`<h3 onclick="loadAlltrees()" id="allTrees">All Tress </h3>`
+categoriesContainer.innerHTML=`<h3 onclick="loadAlltrees()" id="allTrees">All Trees </h3>`
 
 cats.forEach(cat => {
     const div=document.createElement('div')
@@ -72,23 +72,30 @@ const displaycards=(cards)=>{
                   </div>`
                   cardContainer.appendChild(div)
     })
-    cardContainer.addEventListener('click',(e)=>{
-     const name= e.target.parentNode.childNodes[3].innerText
+    
+}
+cardContainer.addEventListener('click',(e)=>{
+    console.log(e)
+    
+     if(e.target.innerText="Add to cart"){
+         const name= e.target.parentNode.childNodes[3].innerText
      const price=e.target.parentNode.childNodes[7].childNodes[3].innerText
+     alert(`${name} has been added to the cart`)
 
-     const cart={
+         const cart={
         name: name,
         price:price
      }
-     cartbox.push(cart)
+      cartbox.push(cart)
      showCarts(cartbox)
+          
+     
+     }
+    
+    
     
     
 })
-    
-        
-    
-}
 
 // cart
 
