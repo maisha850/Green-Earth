@@ -7,7 +7,7 @@ Ans:
 ### Question 2: What is the difference between map(), forEach(), and filter()?
 Ans: 
 **map()**:It creates a new array by applying a function to each element and returns the new transformed array.
-**forEach**:It use to loop through each element in an array and does not return a new array
+**forEach**:It uses to loop through each element in an array and does not return a new array
 **filter**:It creates a new array with elements that pass a condition and returns only those items that satisfy the callback function
 ### Question 3: What are arrow functions in ES6?
 Ans:
