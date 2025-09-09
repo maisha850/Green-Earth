@@ -2,6 +2,7 @@ const categoriesContainer=document.getElementById('categories-container')
 const cardContainer=document.getElementById('card-container')
 const cartContainer=document.getElementById('cart-container')
 const detailsContainer=document.getElementById('details-con')
+const priceCount=document.getElementById('priceCount')
 let clearCart=[]
 let cartbox=[]
 // categories
@@ -11,6 +12,7 @@ const loadCategories=()=>{
     .then(data=>displayCategories(data.categories))
 }
 const displayCategories=(cats)=>{
+   
   
 categoriesContainer.innerHTML=""
 categoriesContainer.innerHTML=`<h3 onclick="loadAlltrees()" id="allTrees">All Trees </h3>`
@@ -50,6 +52,7 @@ const loadAlltrees=()=>{
 
 // cards
 const loadcards=(id)=>{
+     loadingSpinner(true)
     
     fetch(`https://openapi.programming-hero.com/api/category/${id}`)
     .then(res=> res.json())
@@ -62,46 +65,85 @@ const displaycards=(cards)=>{
         const div=document.createElement('div')
         div.innerHTML=`
         <div class="bg-white p-4 rounded-lg h-full">
-                    <img class="w-[311px] h-[186px] object-cover rounded-lg" src="${card.image}" alt="">
+                    <img class="md:w-[311px] w-full md:h-[186px] h-[220px] object-cover rounded-lg" src="${card.image}" alt="">
                     <h3 onclick="loadtreeDetails(${card.id})" id="${card.id}" class="font-semibold text-sm mt-3">${card.name}</h3>
-                    <p class="text-xs text-gray-500 mt-2">${card.description}</p>
+                    <p class="text-xs text-gray-500 mt-2 h-[60px]">${card.description}</p>
                  <div class="flex justify-between items-center mt-5">
                      <h3 class="font-semibold text-sm text-[#15803D] bg-[#DCFCE7] rounded-3xl px-3 py-1">${card.category}</h3>
-                    <h3 class="font-semibold text-sm">৳${card.price}</h3>
+                    <h3 class="font-semibold text-sm">৳<span>${card.price}</span></h3>
                  </div>
                  <button id="${card.id}" class="mt-5 font-medium text-white bg-[#15803D] py-3 w-full rounded-3xl cartbtn">Add to cart</button>
 
                   </div>`
                   cardContainer.appendChild(div)
     })
+    loadingSpinner(false)
     
 }
 cardContainer.addEventListener('click',(e)=>{
     // e.target.parentNode.childNodes[9].innerText
     
+     
+
+    
      if(e.target.innerText==='Add to cart'){
          const name= e.target.parentNode.childNodes[3].innerText
      const price=e.target.parentNode.childNodes[7].childNodes[3].innerText
+     const id=e.target.parentNode.childNodes[3].id
+     
+
      alert(`${name} has been added to the cart`)
 
          const cart={
         name: name,
-        price:price
+        price:price,
+        id:id
+        
      }
       cartbox.push(cart)
      showCarts(cartbox)
           
      
      }
+          const price1=e.target.parentNode.childNodes[7].childNodes[3].childNodes[1].innerText
+          const priceNum=Number(price1)
+          const balance=Number(priceCount.innerText)
+          const totalBalance=priceNum+balance
+
     
-    
-    
-    
+
+     priceCount.innerText=totalBalance
+
+     
 })
 
+// spinner
+
+const loadingSpinner=(status)=>{
+  const spinner=document.getElementById('spinner')
+  const cardContainer=document.getElementById('card-container')
+  if(status===true){
+    
+ spinner.classList.remove('hidden')
+    cardContainer.classList.add('hidden')
+  }
+  else{
+       spinner.classList.add('hidden')
+    cardContainer.classList.remove('hidden')
+  }
+}
+
 // cart
+const handleClearCart=(carts)=>{
+    console.log(carts)
+    const filteredCart=clearCart.filter(cart=>cart.id!==carts)
+    clearCart=filteredCart
+    showCarts(clearCart)
+}
 
 const showCarts=(carts)=>{
+    
+
     cartContainer.innerHTML=''
     for(let cart of carts){
         const div=document.createElement('div')
@@ -117,6 +159,7 @@ const showCarts=(carts)=>{
                       
                       cartContainer.appendChild(div)
     }
+
 }
 
 // modal
@@ -143,11 +186,7 @@ const displayTreeDetails=(card)=>{
     document.getElementById('myModal').showModal()
 }
 
-const handleClearCart=(carts)=>{
-    const filteredCart=clearCart.filter(cart=>cart.id!==carts)
-    clearCart=filteredCart
-    showCarts(clearCart)
-}
+
 
 
 loadAlltrees()

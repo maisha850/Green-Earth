@@ -34,27 +34,30 @@
 <body class="inter-normal max-w-[1920px]">
     <!-- navbar -->
      <header class="bg-[#15803D]">
-      <div class="w-11/12 mx-auto flex items-center justify-between py-6">
+      <div class="w-11/12 mx-auto flex items-center justify-between md:py-6 py-3">
         <!-- logo -->
-         <h3 class="font-bold text-2xl text-white">Green Earth</h3>
-         <ul class="font-medium text-white flex items-center gap-7">
+        <div class="flex items-center gap-2">
+           <img class="md:w-10 md:h-10 w-6 h-6 bg-white p-1 rounded-full" src="https://png.pngtree.com/png-clipart/20230518/original/pngtree-green-plant-logo-png-image_9164721.png" alt="">
+         <h3 class="font-bold md:text-2xl text-lg text-white">Green Earth</h3>
+        </div>
+         <ul class="font-medium text-white flex items-center md:gap-7 gap-3 md:text-[16px] text-xs">
           <li><a href="">About</a></li>
           <li><a href="">Gallery</a></li>
           <li><a href="">Plant a tree</a></li>
          </ul>
 
-         <button class=" bg-[#FACC15] text-[#15803D] rounded-3xl border-none py-3 px-5">Plant a tree</button>
+         <button class=" bg-[#FACC15] text-[#15803D] rounded-3xl border-none md:py-3 py-1 md:px-5 px-2 md:text-[16px] text-xs">Plant a tree</button>
 
       </div>
 
          <!-- hero -->
-         <div class="bg-[#CFF0DC] w-full h-[383px] bg-[url(./assets/hero-leaf1.png),url(./assets/hero-leaf2.png)]  bg-[position:top_left,right] bg-no-repeat ">
-          <div class="flex justify-center items-center flex-col py-25">
-            <h3 class="font-bold text-4xl text-[#1F2937] mb-2">Plant a Tree, Grow a Future</h3>
-            <p class=" text-[#1F2937] text-center mb-6 text-sm ">Join our mission to plant 1 million trees and make the Earth greener for future <br>
+         <div class="bg-[#CFF0DC] w-full h-[383px] bg-[url(./assets/hero-leaf1.png)] md:bg-[url(./assets/hero-leaf1.png),url(./assets/hero-leaf2.png)] md:bg-[position:top_left,right] bg-[position:top,center] bg-no-repeat ">
+          <div class="flex justify-center  items-center flex-col py-25">
+            <h3 class="font-bold md:text-4xl text-3xl text-[#1F2937] mb-2">Plant a Tree, Grow a Future</h3>
+            <p class=" text-[#1F2937] text-center mb-6 text-sm  ">Join our mission to plant 1 million trees and make the Earth greener for future <br>
 generations.</p>
 
-         <button class=" bg-[#FACC15] text-[#15803D] rounded-3xl border-none py-3 px-5">Get Involved</button>
+         <button class=" bg-[#FACC15] text-[#15803D] rounded-3xl border-none md:py-3 py-1 md:px-5 px-2 md:text-[16px] text-xs">Get Involved</button>
             
 
           </div>
@@ -71,7 +74,7 @@ generations.</p>
             <div class="w-11/12 mx-auto">
               <h3 class="font-semibold text-[32px] text-center pt-25 mb-10">Choose your Trees</h3>
 
-              <div class="grid grid-cols-5 gap-6">
+              <div class="grid md:grid-cols-5 grid-cols-1 gap-6">
 
                 <!-- categories -->
                  <div class="col-span-1">
@@ -84,7 +87,11 @@ generations.</p>
                  </div>
                  <!-- cards -->
                   <div class=" col-span-3">
-                    <div id="card-container" class="grid grid-cols-3 gap-6"></div>
+                    <div id="card-container" class="grid md:grid-cols-3 grid-cols-1 gap-6"></div>
+                       <div id="spinner" class="flex justify-center items-center py-25">
+        <span class="loading loading-dots loading-xl"></span>
+      </div>
+               
 
                   </div>
                   <!--  -->
@@ -97,7 +104,7 @@ generations.</p>
                     <div class="bg-white p-4 rounded-lg">
                       <h3 class="text-xl font-semibold">Your Cart</h3>
                       <div id="cart-container"></div>
-                      
+                           <h3 class="font-semibold text-right mt-2">Total : <span id="priceCount">0</span></h3>
 
                     </div>
 
@@ -113,9 +120,9 @@ generations.</p>
 
           <section class="w-11/12 mx-auto mt-25">
              <h3 class="font-semibold text-[32px] text-center">About the Campaign</h3>
-             <div class="flex justify-center items-center gap-[30px] mt-10">
+             <div class="flex justify-center items-center md:flex-row flex-col gap-[30px] mt-10">
               <img src="assets/about.png" alt="">
-              <div class="w-[528px]">
+              <div class="md:w-[528px] w-[350px]">
                 <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we've planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
                 <ul class="list-inside list-disc mt-5">
                   <li>Restoration of natural habitats</li>
@@ -128,15 +135,15 @@ generations.</p>
 
           <section class="bg-[#CFF0DC] py-25 mt-25">
             <h3 class="text-[32px] font-semibold mb-10 text-center">Our Impact</h3>
-           <div class="flex justify-center items-center gap-12 w-11/12 mx-auto">
-             <div class="w-[500px] h-[156px] rounded-lg shadow-md bg-white">
+           <div class="flex justify-center md:flex-row flex-col items-center gap-12 w-11/12 mx-auto">
+             <div class="md:w-[500px] h-[156px] w-[250px]  rounded-lg shadow-md bg-white">
           <div class=" flex flex-col justify-center items-center py-10">
                 <h3 class="text-[32px] font-semibold text-[#15803D]" >500K+</h3>
               <p class="mt-3">Trees Planted</p>
 
           </div>
             </div>
-             <div class="w-[500px] h-[156px] rounded-lg shadow-md bg-white">
+             <div class="md:w-[500px] h-[156px] w-[250px] rounded-lg shadow-md bg-white">
           <div class=" flex flex-col justify-center items-center py-10">
                 <h3 class="text-[32px] font-semibold text-[#15803D]" >120+</h3>
               <p class="mt-3">Communities Involved</p>
@@ -146,7 +153,7 @@ generations.</p>
 
             </div>
 
-           <div class="w-[500px] h-[156px] rounded-lg shadow-md bg-white">
+           <div class="md:w-[500px] h-[156px] w-[250px] rounded-lg shadow-md bg-white">
           <div class=" flex flex-col justify-center items-center py-10">
                 <h3 class="text-[32px] font-semibold text-[#15803D]" >30+</h3>
               <p class="mt-3">Countries Reached</p>
