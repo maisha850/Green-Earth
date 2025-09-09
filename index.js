@@ -32,7 +32,7 @@ categoriesContainer.addEventListener('click',(e)=>{
     allh3.forEach(h3=>{
           h3.classList.remove('active')
     })
-    if(e.target.localName='h3'){
+    if(e.target.localName==='h3'){
         // console.log(e.target.id)
         e.target.classList.add('active')
            loadcards(e.target.id)
@@ -68,7 +68,7 @@ const displaycards=(cards)=>{
                     <img class="md:w-[311px] w-full md:h-[186px] h-[220px] object-cover rounded-lg" src="${card.image}" alt="">
                     <h3 onclick="loadtreeDetails(${card.id})" id="${card.id}" class="font-semibold text-sm mt-3">${card.name}</h3>
                     <p class="text-xs text-gray-500 mt-2 h-[60px]">${card.description}</p>
-                 <div class="flex justify-between items-center mt-5">
+                 <div class="flex justify-between items-center mt-6">
                      <h3 class="font-semibold text-sm text-[#15803D] bg-[#DCFCE7] rounded-3xl px-3 py-1">${card.category}</h3>
                     <h3 class="font-semibold text-sm">৳<span>${card.price}</span></h3>
                  </div>
@@ -81,14 +81,11 @@ const displaycards=(cards)=>{
     
 }
 cardContainer.addEventListener('click',(e)=>{
-    // e.target.parentNode.childNodes[9].innerText
-    
      
-
-    
-     if(e.target.innerText==='Add to cart'){
+     if(e.target.classList.contains("cartbtn")){
          const name= e.target.parentNode.childNodes[3].innerText
-     const price=e.target.parentNode.childNodes[7].childNodes[3].innerText
+    const price=e.target.parentNode.childNodes[7].childNodes[3].childNodes[1].innerText
+     const priceNum=Number(price)
      const id=e.target.parentNode.childNodes[3].id
      
 
@@ -96,7 +93,7 @@ cardContainer.addEventListener('click',(e)=>{
 
          const cart={
         name: name,
-        price:price,
+        price:priceNum,
         id:id
         
      }
@@ -105,14 +102,12 @@ cardContainer.addEventListener('click',(e)=>{
           
      
      }
-          const price1=e.target.parentNode.childNodes[7].childNodes[3].childNodes[1].innerText
-          const priceNum=Number(price1)
-          const balance=Number(priceCount.innerText)
-          const totalBalance=priceNum+balance
-
+        
+         
+          
+ const total = cartbox.reduce((sum, item) => sum + item.price, 0);
+    priceCount.innerText = total;
     
-
-     priceCount.innerText=totalBalance
 
      
 })
@@ -134,11 +129,13 @@ const loadingSpinner=(status)=>{
 }
 
 // cart
-const handleClearCart=(carts)=>{
-    console.log(carts)
-    const filteredCart=clearCart.filter(cart=>cart.id!==carts)
-    clearCart=filteredCart
-    showCarts(clearCart)
+const handleClearCart=(id)=>{
+
+      cartbox = cartbox.filter((cart) => cart.id !== id);
+  showCarts(cartbox);
+  const total = cartbox.reduce((sum, item) => sum + Number(item.price), 0);
+  priceCount.innerText = total;
+
 }
 
 const showCarts=(carts)=>{
@@ -153,7 +150,7 @@ const showCarts=(carts)=>{
                         <h3 class="font-bold">${cart.name}</h3>
                         <p>${cart.price}</p>
                         </div>
-                        <p onclick="handleClearCart(${cart.id})" id="${cart.id}">❌</p>
+                        <p onclick="handleClearCart('${cart.id}')" id="${cart.id}">❌</p>
                        
                       </div>`
                       
