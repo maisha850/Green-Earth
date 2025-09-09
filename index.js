@@ -148,7 +148,7 @@ const showCarts=(carts)=>{
                        
                         <div>
                         <h3 class="font-bold">${cart.name}</h3>
-                        <p>${cart.price}</p>
+                        <p class="text-gray-500"><span>৳</span>${cart.price} x 1</p>
                         </div>
                         <p onclick="handleClearCart('${cart.id}')" id="${cart.id}">❌</p>
                        
